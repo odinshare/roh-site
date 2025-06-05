@@ -47,22 +47,23 @@ export default function VideoBackground({
   // Once we’re on the client and have a chosenSrc, render the <video>
   return (
     <video
-      ref={videoRef}
-      className="fixed top-12 sm:inset-0 left-0 right-0 bottom-0 w-full h-[calc(100vh-3rem)] sm:h-full object-cover"
-      src={chosenSrc}
-      poster={chosenPoster}
-      autoPlay
-      muted
-      loop
-      playsInline
-      webkit-playsinline="true"
-      preload="metadata"
-      onCanPlay={() => {
-        const vid = videoRef.current;
-        if (vid && vid.paused) {
-          vid.play().catch(() => {});
-        }
-      }}
-    />
+    ref={videoRef}
+    src={chosenSrc}
+    poster={chosenPoster}
+    autoPlay
+    loop
+    muted            // ← absolutely required for silent autoplay
+    defaultMuted     // ← sometimes helps iOS honor muted state
+    playsInline      // ← required for iOS to allow inline (vs. fullscreen) playback
+    webkit-playsinline="true" // ← older iOS versions need this
+    preload="auto"   // ← Helps buffer ahead of time; "metadata" sometimes delays
+    crossOrigin="anonymous" // ← if you load from an R2/worker origin, add CORS
+    className="fixed top-12 sm:inset-0 left-0 right-0 bottom-0 w-full h-[calc(100vh-3rem)] sm:h-full object-cover"
+    onCanPlay={() => {
+      // Try to play again as soon as it’s ready
+      const vid = videoRef.current;
+      if (vid && vid.paused) vid.play().catch(() => {});
+    }}
+  />
   );
 }
