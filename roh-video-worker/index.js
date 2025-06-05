@@ -4,8 +4,8 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     // Strip off the "/some-path/" prefix to get the object key.
-    // Example: if request is "https://videos.recoveryontheharbor.com/hero-bg-compressed.mp4",
-    // url.pathname === "/hero-bg-compressed.mp4", so key = "hero-bg-compressed.mp4".
+    // Example: if request is "https://videos.recoveryontheharbor.com/roh-bg-desktop.mp4",
+    // url.pathname === "/roh-bg-desktop.mp4", so key = "roh-bg-desktop.mp4".
     const key = url.pathname.slice(1); // remove leading "/"
 
     // Attempt to get the object from our R2 bucket
