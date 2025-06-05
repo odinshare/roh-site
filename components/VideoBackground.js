@@ -13,14 +13,14 @@ export default function VideoBackground({
   const [loadedPoster, setLoadedPoster] = useState(null);
   const videoRef = useRef(null);
 
-  // Pick mobile vs. desktop src & poster on mount
+  // 1) On mount (and whenever the src/ poster props change), pick mobile vs desktop
   useEffect(() => {
     const isMobile = window.innerWidth < 768;
     setLoadedSrc(isMobile ? portraitSrc : landscapeSrc);
     setLoadedPoster(isMobile ? posterPortrait : posterLandscape);
   }, [portraitSrc, landscapeSrc, posterPortrait, posterLandscape]);
 
-  // Nothing to render until we know which file to load
+  // 2) Don’t render the <video> until we know which src/poster to use
   if (!loadedSrc) return null;
 
   return (
@@ -29,15 +29,16 @@ export default function VideoBackground({
       className="fixed top-12 sm:inset-0 left-0 right-0 bottom-0 w-full h-[calc(100vh-3rem)] sm:h-full object-cover"
       src={loadedSrc}
       poster={loadedPoster}
+      autoPlay
       muted
-      playsInline
       loop
+      playsInline
       preload="metadata"
       onCanPlay={() => {
-        // As soon as the video has buffered enough to play, force play()
+        // If autoplay didn’t trigger, this will force play once enough data is buffered
         if (videoRef.current) {
           videoRef.current.play().catch(() => {
-            /* swallow any errors */
+            /* Silently swallow errors if play() is rejected */
           });
         }
       }}
