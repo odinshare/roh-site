@@ -54,6 +54,7 @@ export default function VideoBackground({
       autoPlay
       muted
       loop
+      crossOrigin="true"
       playsInline
       webkit-playsinline="true"
       preload="metadata"
