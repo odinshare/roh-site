@@ -1,13 +1,18 @@
 # wrangler.toml
+<details>
+<summary><code>roh-video-worker/wrangler.toml</code></summary>
 
-name = "roh-video-worker"
+name = "roh-video-worker-production"
 main = "index.js"
-compatibility_date = "2025-06-01"
+compatibility_date = "2025-06-05"
+
 account_id = "7a787fc45456db045426d24e3cb3220c"
+
+type = "javascript"
 
 # Bind the R2 bucket we just created
 [[r2_buckets]]
-binding = "roh_videos"      
+binding = "ROH_VIDEOS"      
 bucket_name = "roh-videos"
 
 # When published, route all requests at videos.recoveryontheharbor.com/*
@@ -15,3 +20,5 @@ bucket_name = "roh-videos"
 [[routes]]
 pattern = "videos.recoveryontheharbor.com/*"
 script  = "roh-video-worker-production"
+
+</details>
