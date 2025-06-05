@@ -16,5 +16,5 @@ bucket_name = "roh-videos"
 # to this Worker.
 [[routes]]
 pattern = "videos.recoveryontheharbor.com/*"
-script  = "roh-video-worker-production"
+zone_id = "dca90163efbd50fb30e60386348aafd4"
 
