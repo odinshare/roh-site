@@ -30,34 +30,28 @@ export default function Header() {
               Home
             </Link>
           </li>
-          <li className="relative">
-            <button
-              onClick={() => setAboutSubOpen(!aboutSubOpen)}
-              className="flex items-center text-outline hover:text-[var(--primary-blue)]"
-            >
+          <li className="group relative">
+            <div className="flex items-center text-outline hover:text-[var(--primary-blue)] cursor-pointer">
               About
               <ChevronDownIcon className="ml-1 h-5 w-5" />
-            </button>
-            {/* Desktop “About” submenu */}
-            {aboutSubOpen && (
-              <ul className="absolute top-full left-0 mt-2 w-40 bg-white border rounded shadow-lg">
-                <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/#about" className="block text-outline">
-                    Overview
-                  </Link>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/about/blog" className="block text-outline">
-                    Blog
-                  </Link>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/about/faq" className="block text-outline">
-                    FAQ
-                  </Link>
-                </li>
-              </ul>
-            )}
+            </div>
+            <ul className="hidden group-hover:block absolute top-full left-0 mt-2 w-40 bg-white border rounded shadow-lg">
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/#about" className="block text-outline">
+                  Overview
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about/blog" className="block text-outline">
+                  Blog
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about/faq" className="block text-outline">
+                  FAQ
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
             <Link href="/#services" className="text-outline hover:text-[var(--primary-blue)]">
@@ -69,29 +63,23 @@ export default function Header() {
               Gallery
             </Link>
           </li>
-          <li className="relative">
-            <button
-              onClick={() => setResourcesSubOpen(!resourcesSubOpen)}
-              className="flex items-center text-outline hover:text-[var(--primary-blue)]"
-            >
+          <li className="group relative">
+            <div className="flex items-center text-outline hover:text-[var(--primary-blue)] cursor-pointer">
               Resources
               <ChevronDownIcon className="ml-1 h-5 w-5" />
-            </button>
-            {/* Desktop “Resources” submenu */}
-            {resourcesSubOpen && (
-              <ul className="absolute top-full left-0 mt-2 w-40 bg-white border rounded shadow-lg">
-                <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/resources/calendar" className="block text-outline">
-                    Calendar
-                  </Link>
-                </li>
-                <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/resources/flyers" className="block text-outline">
-                    Flyers
-                  </Link>
-                </li>
-              </ul>
-            )}
+            </div>
+            <ul className="hidden group-hover:block absolute top-full left-0 mt-2 w-40 bg-white border rounded shadow-lg">
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/resources/calendar" className="block text-outline">
+                  Calendar
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/resources/flyers" className="block text-outline">
+                  Flyers
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
             <Link href="/#contact" className="text-outline hover:text-[var(--primary-blue)]">
@@ -146,17 +134,17 @@ export default function Header() {
                 className="w-full flex items-center justify-between text-lg text-blue-900 text-outline"
               >
                 Resources
-                <ChevronDownIcon className="h-5 w-5" />
+                <ChevronDownIcon className={`h-5 w-5 transform transition-transform ${resourcesSubOpen ? "rotate-180" : ""}`} />
               </button>
               {resourcesSubOpen && (
                 <ul className="mt-2 ml-4 space-y-2">
                   <li>
-                    <Link href="/resources/calendar" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+                    <Link href="/resources/calendar" onClick={() => { setMenuOpen(false); setResourcesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
                       Calendar
                     </Link>
                   </li>
                   <li>
-                    <Link href="/resources/flyers" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+                    <Link href="/resources/flyers" onClick={() => { setMenuOpen(false); setResourcesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
                       Flyers
                     </Link>
                   </li>
@@ -169,22 +157,22 @@ export default function Header() {
                 className="w-full flex items-center justify-between text-lg text-blue-900 text-outline"
               >
                 About
-                <ChevronDownIcon className="h-5 w-5" />
+                <ChevronDownIcon className={`h-5 w-5 transform transition-transform ${aboutSubOpen ? "rotate-180" : ""}`} />
               </button>
               {aboutSubOpen && (
                 <ul className="mt-2 ml-4 space-y-2">
                   <li>
-                    <Link href="/#about" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+                    <Link href="/#about" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
                       Overview
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about/blog" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+                    <Link href="/about/blog" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link href="/about/faq" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+                    <Link href="/about/faq" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
                       FAQ
                     </Link>
                   </li>
