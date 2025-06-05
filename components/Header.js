@@ -47,13 +47,13 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/#about" className="block text-outline">
-                    About
+                  <Link href="/blog" className="block text-outline">
+                    Blog
                   </Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-100">
                   <Link href="/#contact" className="block text-outline">
-                    Contact
+                    FAQ
                   </Link>
                 </li>
               </ul>
