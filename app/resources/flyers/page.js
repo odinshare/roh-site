@@ -4,10 +4,16 @@ import React, { useState } from "react";
 
 // Array of flyer image file paths (put your actual files in public/flyers/)
 const flyers = [
-  "/flyers/flyer1.png",
-  "/flyers/flyer2.png",
-  "/flyers/flyer3.png",
-  "/flyers/flyer4.png",
+  "/flyers/cooking_with_coleen.png",
+  "/flyers/Early_Risers.png",
+  "/flyers/eat_and_meet.png",
+  "/flyers/fathers_in_training.png",
+  "/flyers/hiset_flyer.png",
+  "/flyers/new_pizza_day.png",
+  "/flyers/New_pizza.png",
+  "/flyers/nscs_recovery_hotline.png",
+  "/flyers/nscs_recovery_hotline_SP.png",
+  "/flyers/sisters_in_serenity.png",
   // Add more entries here for each flyer image
 ];
 
