@@ -14,7 +14,7 @@ export default function Hero() {
         </p>
         <a
           href="/about"
-          className="inline-block bg-[var(--secondary-gold)] text-[var(--primary-blue)] font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-opacity-30 transition"
+          className="inline-block bg-[var(--secondary-black)] text-[var(--primary-blue)] font-semibold px-6 py-3 rounded-lg shadow-lg bg-black/50 hover:bg-black/90 transition"
         >
           Learn More
         </a>

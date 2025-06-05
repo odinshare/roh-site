@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://recoveryontheharbor.com/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About (Overview) -->
+  <url>
+    <loc>https://recoveryontheharbor.com/about</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- About » Blog -->
+  <url>
+    <loc>https://recoveryontheharbor.com/about/blog</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- About » FAQ -->
+  <url>
+    <loc>https://recoveryontheharbor.com/about/faq</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Services -->
+  <url>
+    <loc>https://recoveryontheharbor.com/services</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Gallery -->
+  <url>
+    <loc>https://recoveryontheharbor.com/gallery</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Resources » Calendar -->
+  <url>
+    <loc>https://recoveryontheharbor.com/resources/calendar</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Resources » Flyers -->
+  <url>
+    <loc>https://recoveryontheharbor.com/resources/flyers</loc>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Contact -->
+  <url>
+    <loc>https://recoveryontheharbor.com/contact</loc>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

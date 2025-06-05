@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://recoveryontheharbor.com/sitemap.xml

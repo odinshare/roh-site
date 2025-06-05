@@ -4,9 +4,15 @@ import Footer from "../components/Footer";
 import VideoBackground from "../components/VideoBackground";
 
 export const metadata = {
-  title: "Recovery on the Harbor",
-  description: "Peer Recovery Support Center · Massachusetts · Free Membership",
-  icons: { icon: "/favicon.ico" },
+  title: 'Recovery on the Harbor | East Boston Peer Recovery Center',
+  description: 'Free, inclusive peer recovery support in East Boston. Open to all individuals, families, and allies affected by addiction.',
+  openGraph: {
+    title: 'Recovery on the Harbor | East Boston Peer Recovery Center',
+    description: 'Empowering recovery through peer connection and community resources.',
+    url: 'https://recoveryontheharbor.com',
+    siteName: 'Recovery on the Harbor',
+    type: 'website',
+  },
 };
 
 export const viewport = { width: "device-width", initialScale: 1 };

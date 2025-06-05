@@ -4,8 +4,8 @@ export default function GalleryPage() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow max-w-5xl mx-auto px-4 py-16">
-        <h1 className="text-3xl font-semibold mb-6">Gallery</h1>
-        <p className="mb-8 text-gray-700">
+        <h1 className="text-3xl font-semibold text-outline-blue text-center mb-6">Gallery</h1>
+        <p className="mb-8 text-white-700 text-outline-blue">
           A few snapshots of our members, events, and the Harbor space. (Placeholder images below.)
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">

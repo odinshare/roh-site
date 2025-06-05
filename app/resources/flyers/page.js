@@ -33,7 +33,7 @@ export default function FlyersPage() {
 
   return (
     <section className="min-h-screen bg-white p-8">
-      <h1 className="text-4xl font-bold text-[var(--primary-blue)] text-center mb-8">
+      <h1 className="text-4xl text-outline-blue text-center font-bold text-[var(--primary-blue)] text-center mb-8">
         Downloadable Flyers
       </h1>
 

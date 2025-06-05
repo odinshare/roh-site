@@ -10,11 +10,11 @@ export default function CalendarPage() {
       </Head>
 
       <section className="min-h-screen bg-white p-4 md:p-8 flex flex-col items-center">
-        <div className="max-w-3xl w-full text-center mb-6">
+        <div className="max-w-3xl w-full text-outline-blue text-center mb-6">
           <h1 className="text-4xl font-bold text-[var(--primary-blue)] mb-2">
             Calendar
           </h1>
-          <p className="text-gray-700 text-lg">
+          <p className="text-white-700 text-outline-blue text-lg">
             Below is our live event calendar. Scroll or swipe to navigate.
           </p>
         </div>

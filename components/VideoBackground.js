@@ -53,7 +53,7 @@ export default function VideoBackground({
     autoPlay
     loop
     muted            // ← absolutely required for silent autoplay
-    defaultMuted     // ← sometimes helps iOS honor muted state
+    defaultmuted="true"     // ← sometimes helps iOS honor muted state
     playsInline      // ← required for iOS to allow inline (vs. fullscreen) playback
     webkit-playsinline="true" // ← older iOS versions need this
     preload="auto"   // ← Helps buffer ahead of time; "metadata" sometimes delays

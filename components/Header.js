@@ -35,9 +35,9 @@ export default function Header() {
               About
               <ChevronDownIcon className="ml-1 h-5 w-5" />
             </div>
-            <ul className="hidden group-hover:block absolute top-full left-0 mt-2 w-40 bg-white border rounded shadow-lg">
+            <ul className="hidden group-hover:block hover:block absolute top-full left-0 w-40 bg-white border rounded shadow-lg">
               <li className="px-4 py-2 hover:bg-gray-100">
-                <Link href="/#about" className="block text-outline">
+                <Link href="/about" className="block text-outline">
                   Overview
                 </Link>
               </li>
@@ -54,7 +54,7 @@ export default function Header() {
             </ul>
           </li>
           <li>
-            <Link href="/#services" className="text-outline hover:text-[var(--primary-blue)]">
+            <Link href="/services" className="text-outline hover:text-[var(--primary-blue)]">
               Services
             </Link>
           </li>
@@ -68,7 +68,7 @@ export default function Header() {
               Resources
               <ChevronDownIcon className="ml-1 h-5 w-5" />
             </div>
-            <ul className="hidden group-hover:block absolute top-full left-0 mt-2 w-40 bg-white border rounded shadow-lg">
+            <ul className="hidden group-hover:block hover:block absolute top-full left-0 w-40 bg-white border rounded shadow-lg">
               <li className="px-4 py-2 hover:bg-gray-100">
                 <Link href="/resources/calendar" className="block text-outline">
                   Calendar
@@ -82,7 +82,7 @@ export default function Header() {
             </ul>
           </li>
           <li>
-            <Link href="/#contact" className="text-outline hover:text-[var(--primary-blue)]">
+            <Link href="/contact" className="text-outline hover:text-[var(--primary-blue)]">
               Contact
             </Link>
           </li>
@@ -119,7 +119,7 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/#services" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+              <Link href="/services" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
                 Services
               </Link>
             </li>
@@ -162,7 +162,7 @@ export default function Header() {
               {aboutSubOpen && (
                 <ul className="mt-2 ml-4 space-y-2">
                   <li>
-                    <Link href="/#about" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                    <Link href="/about" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
                       Overview
                     </Link>
                   </li>
@@ -180,7 +180,7 @@ export default function Header() {
               )}
             </li>
             <li>
-              <Link href="/#contact" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+              <Link href="/contact" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
                 Contact
               </Link>
             </li>
