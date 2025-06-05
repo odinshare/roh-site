@@ -17,8 +17,8 @@ export default function RootLayout({ children }) {
       <body className="relative min-h-screen overflow-x-hidden">
         {/* 1. Lazy-loading video background (z-0) */}
         <VideoBackground
-          portraitSrc="/hero-bg-compressed_mobile.mp4"
-          landscapeSrc="/hero-bg-compressed.mp4"
+          portraitSrc="https://videos.recoveryontheharbor.com/hero-bg-compressed_mobile.mp4"
+          landscapeSrc="https://videos.recoveryontheharbor.com/hero-bg-compressed.mp4"
           poster="/logo.png"
         />
 
