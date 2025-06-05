@@ -24,9 +24,9 @@ export default function Services() {
             </p>
           </div>
           <div className="space-y-2">
-            <h3 className="font-medium text-xl text-outline-blue">Counseling Referrals</h3>
+            <h3 className="font-medium text-xl text-outline-blue">Recovery Coachin</h3>
             <p className="text-gray-600">
-              We partner with local agencies to help you get sliding‐scale counseling and therapy when needed.
+              We have Certified Recovery Coaches in house, they are the resource brokers everyone in recovery needs!
             </p>
           </div>
           <div className="space-y-2">

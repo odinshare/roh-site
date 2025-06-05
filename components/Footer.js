@@ -7,9 +7,9 @@ export default function Footer() {
           <p className="text-sm">&copy; {new Date().getFullYear()} A Program of NSCS</p>
         </div>
         <div className="space-y-2 text-sm">
-          <p>1234 Harbor St., Boston, MA</p>
-          <p>Email: info@recoveryontheharbor.org</p>
-          <p>Phone: (555) 123-4567</p>
+          <p>979 Bennington St., East Boston, MA 02128</p>
+          <p>Phone: (617) 874-8046</p>
+          <p> Web Design by ContentByKevin.com</p>
         </div>
       </div>
     </footer>
