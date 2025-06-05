@@ -24,7 +24,7 @@ export default function Services() {
             </p>
           </div>
           <div className="space-y-2">
-            <h3 className="font-medium text-xl text-outline-blue">Recovery Coachin</h3>
+            <h3 className="font-medium text-xl text-outline-blue">Recovery Coaching</h3>
             <p className="text-gray-600">
               We have Certified Recovery Coaches in house, they are the resource brokers everyone in recovery needs!
             </p>
