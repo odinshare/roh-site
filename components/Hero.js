@@ -8,7 +8,8 @@ export default function Hero() {
           Recovery on the Harbor
         </h1>
         <p className="text-lg sm:text-xl md:text-2xl drop-shadow-md">
-          A Peer Recovery Support Center in Massachusetts.<br />
+          A Peer Recovery Support Center in<br />
+          East Boston, Massachusetts.<br />
           Membership is free—always.
         </p>
         <a

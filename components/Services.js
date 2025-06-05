@@ -4,7 +4,7 @@ export default function Services() {
   return (
     <section id="services" className="bg-white py-16 px-4 sm:px-8">
       <div className="max-w-4xl mx-auto text-center space-y-6">
-        <h2 className="text-3xl  text-outline-blue sm:text-4xl font-semibold text-[var(--primary-blue)]">
+        <h2 className="text-3xl text-outline-blue sm:text-4xl font-semibold text-[var(--primary-blue)]">
           Our Services
         </h2>
         <p className="text-gray-700 text-lg">
