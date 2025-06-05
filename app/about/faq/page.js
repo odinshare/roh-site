@@ -4,7 +4,7 @@ export default function AboutFAQ() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-grow max-w-4xl mx-auto px-4 py-16">
-        <h1 className="text-3xl font-semibold mb-6">FAQ</h1>
+        <h1 className="text-3xl text-outline-blue font-semibold mb-6">FAQ</h1>
         <div className="space-y-6">
           <div className="bg-black/50 p-4 rounded-lg">
             <h2 className="font-medium text-outline-blue text-white text-xl">Is membership truly free?</h2>
