@@ -19,7 +19,8 @@ export default function RootLayout({ children }) {
         <VideoBackground
           portraitSrc="https://videos.recoveryontheharbor.com/roh-bg-mobile.mp4"
           landscapeSrc="https://videos.recoveryontheharbor.com/roh-bg-desktop.mp4"
-          poster="/logo.png"
+          posterPortrait="/still_portrait.png"
+          posterLandscape="/still_landscape.png"
         />
 
         {/* 2. Overlay (z-10) for better contrast */}
