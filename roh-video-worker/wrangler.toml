@@ -7,11 +7,11 @@ account_id = "7a787fc45456db045426d24e3cb3220c"
 
 # Bind the R2 bucket we just created
 [[r2_buckets]]
-binding = "MY_BUCKET"      
+binding = "roh_videos"      
 bucket_name = "roh-videos"
 
 # When published, route all requests at videos.recoveryontheharbor.com/*
 # to this Worker.
 [[routes]]
 pattern = "videos.recoveryontheharbor.com/*"
-script  = "roh-video-worker"
+script  = "roh-video-worker-production"
