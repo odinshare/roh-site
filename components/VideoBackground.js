@@ -9,67 +9,58 @@ export default function VideoBackground({
   posterPortrait,
   posterLandscape,
 }) {
-  const videoRef = useRef<HTMLVideoElement>(null);
-
+  // Prevent server‐side rendering from breaking
+  const isClient = typeof window !== "undefined";
+  
   // We’ll keep track of which src & poster to use
-  const [chosenSrc, setChosenSrc] = useState<string | null>(null);
-  const [chosenPoster, setChosenPoster] = useState<string | null>(null);
+  const [chosenSrc, setChosenSrc] = useState(null);
+  const [chosenPoster, setChosenPoster] = useState(null);
 
-  // 1) On first mount, pick portrait vs. landscape
+  const videoRef = useRef(null);
+
+  // Only run on client
   useEffect(() => {
+    if (!isClient) return;
     const isMobile = window.innerWidth < 768;
     setChosenSrc(isMobile ? portraitSrc : landscapeSrc);
     setChosenPoster(isMobile ? posterPortrait : posterLandscape);
-  }, [portraitSrc, landscapeSrc, posterPortrait, posterLandscape]);
+  }, [portraitSrc, landscapeSrc, posterPortrait, posterLandscape, isClient]);
 
-  // 2) As soon as chosenSrc changes, force‐muting & play() inside useLayoutEffect
+  // Force‐mute & play the video as soon as chosenSrc is set
   useLayoutEffect(() => {
+    if (!isClient) return;
     const vid = videoRef.current;
     if (!vid || !chosenSrc) return;
-
-    // (Re‐set `muted` in code, just in case)
     vid.muted = true;
-
-    // Safari sometimes refuses to autoplay if you wait too long.
-    // If `autoPlay` alone didn’t start it, this `.play()` will.
     vid
       .play()
-      .then(() => {
-        // success: it’s playing
-      })
-      .catch((err) => {
-        // ignore; it may still start once enough data is buffered
+      .catch(() => {
+        /* If autoplay is blocked, it may still start once buffered */
       });
-  }, [chosenSrc]);
+  }, [chosenSrc, isClient]);
 
-  // 3) If we haven’t picked a src yet, simply render a hidden <video> so iOS “knows it’s there.”
-  //    Once chosenSrc is non‐null, it becomes visible.
+  // While server‐rendering or before we've picked a src, hide the video
+  if (!isClient || !chosenSrc) {
+    return null;
+  }
+
+  // Once we’re on the client and have a chosenSrc, render the <video>
   return (
     <video
       ref={videoRef}
-      className={
-        chosenSrc
-          ? "fixed top-12 sm:inset-0 left-0 right-0 bottom-0 w-full h-[calc(100vh-3rem)] sm:h-full object-cover"
-          : "hidden"
-      }
-      src={chosenSrc || undefined}
-      poster={chosenPoster || undefined}
+      className="fixed top-12 sm:inset-0 left-0 right-0 bottom-0 w-full h-[calc(100vh-3rem)] sm:h-full object-cover"
+      src={chosenSrc}
+      poster={chosenPoster}
       autoPlay
       muted
       loop
-      playsInline // standard React prop for iOS
-      // below attr helps older Safari versions
+      playsInline
       webkit-playsinline="true"
       preload="metadata"
-      // If `onCanPlay` fires before our `play()` attempt, this double‐checks
       onCanPlay={() => {
         const vid = videoRef.current;
         if (vid && vid.paused) {
-          vid
-            .play()
-            .catch(() => {
-              /* swallow any errors */
-            });
+          vid.play().catch(() => {});
         }
       }}
     />
