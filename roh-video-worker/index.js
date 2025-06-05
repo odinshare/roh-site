@@ -1,11 +1,3 @@
-/**
- * A very minimal Worker that:
- *  - Listens for requests on videos.recoveryontheharbor.com/*
- *  - Strips off the leading slash to get the object key (e.g. "/roh-bg-mobile.mp4" → "roh-bg-mobile.mp4")
- *  - Calls R2.get(key) on the bound bucket (binding = "ROH_VIDEOS")
- *  - Returns the object, with correct headers, or a 404 if missing
- */
-
 export default {
   async fetch(request, env, ctx) {
     // Parse the incoming URL
@@ -22,27 +14,41 @@ export default {
 
     try {
       // Attempt to get the object from R2
-      // Note: "ROH_VIDEOS" must match the binding in wrangler.toml
       let object = await env.ROH_VIDEOS.get(key);
 
       if (!object) {
         return new Response("Not found", { status: 404 });
       }
 
-      // Return the object as a Response. We set "Content-Type: video/mp4" explicitly.
-      // You can also forward all headers by doing: `Response.object(body, {headers: object.httpMetadata})`
+      // Build response headers with CORS
+      const headers = {
+        "Content-Type": "video/mp4",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
+        "Access-Control-Allow-Headers": "Range, Accept, Content-Type",
+        "Access-Control-Expose-Headers": "Content-Length, Accept-Ranges, Content-Range",
+      };
+
+      // If this is a preflight OPTIONS request, return only headers
+      if (request.method === "OPTIONS") {
+        return new Response(null, {
+          status: 204,
+          headers,
+        });
+      }
+
+      // Return the video with the proper headers
       return new Response(object.body, {
         status: 200,
-        headers: {
-          "Content-Type": "video/mp4",
-          // You can also add `Cache-Control` if desired, e.g.:
-          // "Cache-Control": "public, max-age=31536000"
-        },
+        headers,
       });
     } catch (err) {
       // If anything goes wrong—permissions, bucket not found, etc.—return a 500
       return new Response("Error fetching from R2: " + err.message, {
         status: 500,
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+        },
       });
     }
   },
