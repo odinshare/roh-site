@@ -7,7 +7,7 @@ account_id = "7a787fc45456db045426d24e3cb3220c"
 
 # Bind the R2 bucket we just created
 [[r2_buckets]]
-binding = "ROH_VIDEOS_BUCKET"      
+binding = "MY_BUCKET"      
 bucket_name = "roh-videos"
 
 # When published, route all requests at videos.recoveryontheharbor.com/*
