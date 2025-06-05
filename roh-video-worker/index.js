@@ -1,6 +1,6 @@
 export default {
   async fetch(request, env, ctx) {
-    // 1) Handle preflight CORS (OPTIONS) right away
+    // 1) If this is a preflight OPTIONS request, immediately return 204 + CORS
     if (request.method === "OPTIONS") {
       return new Response(null, {
         status: 204,
@@ -8,45 +8,46 @@ export default {
           "Access-Control-Allow-Origin": "*",
           "Access-Control-Allow-Methods": "GET, OPTIONS",
           "Access-Control-Allow-Headers": "Range, Accept, Content-Type",
+          // Expose Content-Range so video can buffer more easily:
           "Access-Control-Expose-Headers": "Content-Length, Accept-Ranges, Content-Range",
         },
       });
     }
 
-    // 2) For all non-OPTIONS requests, parse the URL and key
+    // 2) Otherwise (GET, HEAD, etc), parse the URL path for the file key
     const url = new URL(request.url);
-    let key = url.pathname.replace(/^\/+/, ""); // e.g. "/roh-bg-mobile.mp4" → "roh-bg-mobile.mp4"
+    let key = url.pathname.replace(/^\/+/, ""); // "/roh-bg-desktop.mp4" → "roh-bg-desktop.mp4"
 
-    // 3) If no key was specified (i.e. the root path), return a 404
-    if (key === "") {
+    // 3) If no key was provided, return 404
+    if (!key) {
       return new Response("No video specified", { status: 404 });
     }
 
     try {
-      // 4) Attempt to fetch the object from the bound R2 bucket
+      // 4) Try to fetch the R2 object from your bucket binding (ROH_VIDEOS)
       let object = await env.ROH_VIDEOS.get(key);
       if (!object) {
-        return new Response("Not found", { status: 404 });
+        return new Response("Not found", { status: 404, headers: { "Access-Control-Allow-Origin": "*" } });
       }
 
-      // 5) Build response headers (including CORS) once the object is found
+      // 5) Build the CORS+video headers
       const headers = {
         "Content-Type": "video/mp4",
-        "Access-Control-Allow-Origin": "*",               // Allow any origin to fetch
-        "Access-Control-Allow-Methods": "GET, OPTIONS",   // Allowed methods
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "GET, OPTIONS",
         "Access-Control-Allow-Headers": "Range, Accept, Content-Type",
         "Access-Control-Expose-Headers": "Content-Length, Accept-Ranges, Content-Range",
-        // Optionally, you can add a Cache-Control header:
+        // (Optional) add a Cache‐Control if you like:
         // "Cache-Control": "public, max-age=31536000"
       };
 
-      // 6) Return the video data with the above headers
+      // 6) Return the MP4 body with those headers
       return new Response(object.body, {
         status: 200,
         headers,
       });
     } catch (err) {
-      // 7) If something goes wrong (permissions, bucket missing, etc.), return 500 + CORS header
+      // 7) If something else goes wrong (permissions, bucket missing, etc), still return CORS
       return new Response("Error fetching from R2: " + err.message, {
         status: 500,
         headers: {
