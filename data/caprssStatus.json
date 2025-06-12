@@ -1,0 +1,15 @@
+{
+  "sections": [
+    {"name":"Mission Statement","status":"compliant"},
+    {"name":"Vision & Values","status":"compliant"},
+    {"name":"Volunteer Definition","status":"compliant"},
+    {"name":"Peer Leader Description","status":"compliant"},
+    {"name":"Code of Ethics","status":"draft"},
+    {"name":"Confidentiality Policy","status":"draft"},
+    {"name":"Bylaws","status":"pending"},
+    {"name":"Board Minutes","status":"pending"},
+    {"name":"Risk Management","status":"pending"},
+    {"name":"Community Assessment","status":"missing"},
+    {"name":"Walkthrough Survey","status":"missing"}
+  ]
+}

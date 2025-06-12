@@ -1,0 +1,41 @@
+backend:
+  name: git-gateway
+  branch: staging/caprss
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "mission"
+    label: "Mission Statement"
+    folder: "src/content/mission"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body",  name: "body",  widget: "markdown"}
+
+  - name: "vision_values"
+    label: "Vision & Values"
+    folder: "src/content/vision-values"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body",  name: "body",  widget: "markdown"}
+
+  - name: "policies"
+    label: "Policies"
+    folder: "src/content/policies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Policy Name", name: "policy_name", widget: "string"}
+      - {label: "Content",     name: "content",     widget: "markdown"}
+
+  - name: "board_documents"
+    label: "Board Documents"
+    folder: "public/docs"
+    create: false
+    fields:
+      - {label: "Upload Document", name: "doc", widget: "file"}
