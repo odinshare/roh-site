@@ -1,0 +1,9 @@
+[build]
+  publish = "public"
+  command = "npm run build"
+
+# serve the CMS admin UI
+[[redirects]]
+  from = "/admin/*"
+  to   = "/admin/index.html"
+  status = 200
