@@ -1,4 +1,5 @@
 "use client";
+import React, { useState, useEffect } from "react";
 
 export default function GalleryPage() {
   const topics = [
@@ -10,6 +11,11 @@ export default function GalleryPage() {
     { slug: "sober-socials", label: "Sober Socials" },
     { slug: "advocacy-outreach", label: "Advocacy & Outreach Events" },
   ];
+
+  const imageMap = {};
+  topics.forEach(({ slug }) => {
+    imageMap[slug] = `/images/gallery/${slug}/cover.jpg`;
+  });
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -25,9 +31,11 @@ export default function GalleryPage() {
             <a
               key={slug}
               href={`/gallery/${slug}`}
-              className="h-48 bg-gray-200 rounded-lg flex items-center justify-center text-lg font-medium text-outline-blue hover:shadow-lg transition"
+              className="relative h-48 text-outline-blue rounded-lg overflow-hidden hover:shadow-lg transition bg-gray-200"
+              style={{ backgroundImage: `url(${imageMap[slug]})`, backgroundSize: "cover", backgroundPosition: "center" }}
             >
-              {label}
+              <div className="absolute inset-0 bg-black/30"></div>
+              <span className="relative text-lg font-medium text-white">{label}</span>
             </a>
           ))}
         </div>
