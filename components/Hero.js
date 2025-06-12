@@ -12,12 +12,32 @@ export default function Hero() {
           East Boston, Massachusetts.<br />
           Membership is free—always.
         </p>
-        <a
-          href="/about"
-          className="inline-block bg-[var(--secondary-black)] text-[var(--primary-blue)] font-semibold px-6 py-3 rounded-lg shadow-lg bg-black/50 hover:bg-black/90 transition"
-        >
-          Learn More
-        </a>
+        <div className="flex flex-wrap justify-center gap-4 mt-6">
+          <a
+            href="/services/volunteering"
+            className="bg-[var(--secondary-black)] text-[var(--primary-blue)] font-semibold px-4 py-2 rounded-lg shadow hover:bg-black/90 transition"
+          >
+            Volunteering
+          </a>
+          <a
+            href="/services/peer-leadership"
+            className="bg-[var(--secondary-black)] text-[var(--primary-blue)] font-semibold px-4 py-2 rounded-lg shadow hover:bg-black/90 transition"
+          >
+            Peer Leadership
+          </a>
+          <a
+            href="/services/recovery-coaching"
+            className="bg-[var(--secondary-black)] text-[var(--primary-blue)] font-semibold px-4 py-2 rounded-lg shadow hover:bg-black/90 transition"
+          >
+            Recovery Coaching
+          </a>
+          <a
+            href="/services/community-events"
+            className="bg-[var(--secondary-black)] text-[var(--primary-blue)] font-semibold px-4 py-2 rounded-lg shadow hover:bg-black/90 transition"
+          >
+            Community Events
+          </a>
+        </div>
       </div>
     </section>
   );

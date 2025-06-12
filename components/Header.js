@@ -8,6 +8,9 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [aboutSubOpen, setAboutSubOpen] = useState(false);
   const [resourcesSubOpen, setResourcesSubOpen] = useState(false);
+  const [caprssSubOpen, setCaprssSubOpen] = useState(false);
+  const [servicesSubOpen, setServicesSubOpen] = useState(false);
+  const [contactSubOpen, setContactSubOpen] = useState(false);
 
   return (
     <header className="fixed w-full bg-white/90 backdrop-blur z-50">
@@ -38,25 +41,75 @@ export default function Header() {
             <ul className="hidden group-hover:block hover:block absolute top-full left-0 w-40 bg-white border rounded shadow-lg">
               <li className="px-4 py-2 hover:bg-gray-100">
                 <Link href="/about" className="block text-outline">
-                  Overview
+                Overview
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about#mission-statement" className="block text-outline">
+                  Mission Statement
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about#vision-statement" className="block text-outline">
+                  Vision Statement
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about#values-statement" className="block text-outline">
+                  Values Statement
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about#code-of-conduct" className="block text-outline">
+                  Code of Conduct
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/about#code-of-ethics" className="block text-outline">
+                  Code of Ethics
                 </Link>
               </li>
               <li className="px-4 py-2 hover:bg-gray-100">
                 <Link href="/about/blog" className="block text-outline">
-                  Blog
+                Blog
                 </Link>
               </li>
               <li className="px-4 py-2 hover:bg-gray-100">
                 <Link href="/about/faq" className="block text-outline">
-                  FAQ
+                FAQ
                 </Link>
               </li>
             </ul>
           </li>
-          <li>
-            <Link href="/services" className="text-outline hover:text-[var(--primary-blue)]">
+          <li className="group relative">
+            <div
+              className="flex items-center text-outline hover:text-[var(--primary-blue)] cursor-pointer"
+            >
               Services
-            </Link>
+              <ChevronDownIcon className="ml-1 h-5 w-5" />
+            </div>
+            <ul className="hidden group-hover:block hover:block absolute top-full left-0 w-48 bg-white border rounded shadow-lg">
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/services/recovery-coaching" className="block text-outline">
+                  Recovery Coaching
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/services/volunteering" className="block text-outline">
+                  Volunteering
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/services/peer-leadership" className="block text-outline">
+                  Peer Leadership
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/services/community-events" className="block text-outline">
+                  Community Events
+                </Link>
+              </li>
+            </ul>
           </li>
           <li>
             <Link href="/gallery" className="text-outline hover:text-[var(--primary-blue)]">
@@ -79,12 +132,49 @@ export default function Header() {
                   Flyers
                 </Link>
               </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/resources/community-meeting-minutes" className="block text-outline">
+                  Community Meeting Minutes
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/resources/advisory-board-meeting-minutes" className="block text-outline">
+                  Advisory Board Meeting Minutes
+                </Link>
+              </li>
             </ul>
           </li>
-          <li>
-            <Link href="/contact" className="text-outline hover:text-[var(--primary-blue)]">
+          <li className="group relative">
+            <div className="flex items-center text-outline hover:text-[var(--primary-blue)] cursor-pointer">
               Contact
-            </Link>
+              <ChevronDownIcon className="ml-1 h-5 w-5" />
+            </div>
+            <ul className="hidden group-hover:block hover:block absolute top-full left-0 w-48 bg-white border rounded shadow-lg">
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/contact#hotline" className="block text-outline">
+                  Recovery Hotline
+                </Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/contact#form" className="block text-outline">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </li>
+          <li className="group relative">
+            <div className="flex items-center hover:text-[var(--primary-blue)] cursor-pointer">
+              CAPRSS
+              <ChevronDownIcon className="ml-1 h-5 w-5" />
+            </div>
+            <ul className="hidden group-hover:block hover:block absolute top-full right-0 w-48 bg-white border rounded shadow-lg">
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/caprss-hub">Hub</Link>
+              </li>
+              <li className="px-4 py-2 hover:bg-gray-100">
+                <Link href="/final-statements">Final Statements</Link>
+              </li>
+            </ul>
           </li>
         </ul>
 
@@ -119,9 +209,37 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="/services" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+              <button
+                onClick={() => setServicesSubOpen(!servicesSubOpen)}
+                className="w-full flex items-center justify-between text-lg text-blue-900 text-outline"
+              >
                 Services
-              </Link>
+                <ChevronDownIcon className={`h-5 w-5 transform ${servicesSubOpen ? "rotate-180" : ""}`} />
+              </button>
+              {servicesSubOpen && (
+                <ul className="mt-2 ml-4 space-y-2">
+                  <li>
+                    <Link href="/services/recovery-coaching" onClick={() => { setMenuOpen(false); setServicesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Recovery Coaching
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/volunteering" onClick={() => { setMenuOpen(false); setServicesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Volunteering
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/peer-leadership" onClick={() => { setMenuOpen(false); setServicesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Peer Leadership
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services/community-events" onClick={() => { setMenuOpen(false); setServicesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Community Events
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
             <li>
               <Link href="/gallery" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
@@ -148,6 +266,16 @@ export default function Header() {
                       Flyers
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/resources/community-meeting-minutes" onClick={() => { setMenuOpen(false); setResourcesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Community Meeting Minutes
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/resources/advisory-board-meeting-minutes" onClick={() => { setMenuOpen(false); setResourcesSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Advisory Board Meeting Minutes
+                    </Link>
+                  </li>
                 </ul>
               )}
             </li>
@@ -167,6 +295,31 @@ export default function Header() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/about#mission-statement" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Mission Statement
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about#vision-statement" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Vision Statement
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about#values-statement" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Values Statement
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about#code-of-conduct" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Code of Conduct
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/about#code-of-ethics" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
+                      Code of Ethics
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/about/blog" onClick={() => { setMenuOpen(false); setAboutSubOpen(false); }} className="block text-lg text-blue-900 text-outline">
                       Blog
                     </Link>
@@ -180,9 +333,58 @@ export default function Header() {
               )}
             </li>
             <li>
-              <Link href="/contact" onClick={() => setMenuOpen(false)} className="block text-lg text-blue-900 text-outline">
+              <button
+                onClick={() => setCaprssSubOpen(!caprssSubOpen)}
+                className="block text-lg text-blue-900 text-outline w-full flex items-center justify-between"
+              >
+                CAPRSS
+                <ChevronDownIcon className={`h-5 w-5 transform ${caprssSubOpen ? "rotate-180" : ""}`} />
+              </button>
+              {caprssSubOpen && (
+                <ul className="mt-2 ml-4 block text-lg text-blue-900 text-outline space-y-2">
+                  <li>
+                    <Link href="/caprss-hub" onClick={() => { setMenuOpen(false); setCaprssSubOpen(false); }}>
+                      Hub
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/final-statements" onClick={() => { setMenuOpen(false); setCaprssSubOpen(false); }}>
+                      Final Statements
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </li>
+            <li>
+              <button
+                onClick={() => setContactSubOpen(!contactSubOpen)}
+                className="w-full flex items-center justify-between text-lg text-blue-900 text-outline"
+              >
                 Contact
-              </Link>
+                <ChevronDownIcon className={`h-5 w-5 transform ${contactSubOpen ? "rotate-180" : ""}`} />
+              </button>
+              {contactSubOpen && (
+                <ul className="mt-2 ml-4 space-y-2">
+                  <li>
+                    <Link
+                      href="/contact#hotline"
+                      onClick={() => { setMenuOpen(false); setContactSubOpen(false); }}
+                      className="block text-lg text-blue-900 text-outline"
+                    >
+                      Recovery Hotline
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/contact#form"
+                      onClick={() => { setMenuOpen(false); setContactSubOpen(false); }}
+                      className="block text-lg text-blue-900 text-outline"
+                    >
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </li>
           </ul>
         </div>
