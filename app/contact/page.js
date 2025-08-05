@@ -79,9 +79,6 @@ export default function ContactPage() {
         </section>
 
         {/* ───────────────── Team Cards ───────────────── */}
-        <div className="mb-6 p-4 bg-yellow-100 rounded text-center text-blue-700">
-          Billy Magner is currently on leave. In the meantime, please direct all Program Director inquiries to Alisha Cohen, our Interim Program Director.
-        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* William Magner */}
           <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
@@ -91,7 +88,7 @@ export default function ContactPage() {
               className="w-24 h-24 mb-4 rounded-full object-cover"
             />
             <h2 className="text-xl text-outline-blue font-semibold">William Magner</h2>
-            <p className="text-gray-600 mt-1">Program Director (On Leave)</p>
+            <p className="text-gray-600 mt-1">Program Director</p>
             <a
               href="mailto:WMagner@NorthSuffolk.org"
               className="mt-3 text-blue-600 hover:underline"
@@ -107,7 +104,7 @@ export default function ContactPage() {
               className="w-24 h-24 mb-4 rounded-full object-cover"
             />
             <h2 className="text-xl text-outline-blue font-semibold">Alisha Cohen</h2>
-            <p className="text-gray-600 mt-1">Interim Program Director</p>
+            <p className="text-gray-600 mt-1">Assistant Program Director</p>
             <a
               href="mailto:ACohen@NorthSuffolk.org"
               className="mt-3 text-blue-600 hover:underline"
