@@ -9,7 +9,17 @@ export default function Footer() {
         <div className="space-y-2 text-sm">
           <p>979 Bennington St., East Boston, MA 02128</p>
           <p>Phone: (617) 874-8046</p>
-          <p> Web Design by ContentByKevin.com</p>
+          <p>
+            Web Design by{" "}
+            <a
+              href="https://ContentByKevin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-gray-300"
+            >
+              ContentByKevin.com
+            </a>
+          </p>
         </div>
       </div>
     </footer>
