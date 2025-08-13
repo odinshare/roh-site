@@ -160,6 +160,22 @@ export default function ContactPage() {
               CMorris@NorthSuffolk.org
             </a>
           </div>
+          {/* Joseph Safari */}
+          <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
+            <img
+              src="/staff/JSafari.png"
+              alt="Joseph Safari"
+              className="w-24 h-24 mb-4 rounded-full object-cover"
+            />
+            <h2 className="text-xl text-outline-blue font-semibold">Joseph Safari</h2>
+            <p className="text-gray-600 mt-1">Recovery Coach</p>
+            <a
+              href="mailto:JSafari@NorthSuffolk.org"
+              className="mt-3 text-blue-600 hover:underline"
+            >
+              JSafari@NorthSuffolk.org
+            </a>
+          </div>
           {/* John Doering */}
           <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
             <img
