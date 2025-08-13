@@ -12,10 +12,10 @@ export default function Footer() {
           <p>
             Web Design by{" "}
             <a
-              href="https://ContentByKevin.com"
+              href="https://contentbykevin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-gray-300"
+              className="underline hover:opacity-80 transition-opacity"
             >
               ContentByKevin.com
             </a>
