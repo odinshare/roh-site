@@ -128,20 +128,20 @@ export default function ContactPage() {
               KMortimer@NorthSuffolk.org
             </a>
           </div>
-          {/* Matt Langley */}
+          {/* Aliana Colon */}
           <div className="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center">
             <img
-              src="/staff/MLangley.png"
-              alt="Matt Langley"
+              src="/staff/AColon.png"
+              alt="Aliana Colon"
               className="w-24 h-24 mb-4 rounded-full object-cover"
             />
-            <h2 className="text-xl text-outline-blue font-semibold">Matt Langley</h2>
+            <h2 className="text-xl text-outline-blue font-semibold">Aliana Colon</h2>
             <p className="text-gray-600 mt-1">Outreach Coordinator</p>
             <a
-              href="mailto:MLangley@NorthSuffolk.org"
+              href="mailto:AColon@NorthSuffolk.org"
               className="mt-3 text-blue-600 hover:underline"
             >
-              MLangley@NorthSuffolk.org
+              AColon@NorthSuffolk.org
             </a>
           </div>
           {/* Corey Morris */}
